@@ -26,7 +26,7 @@ class CreateActionsTable extends Migration
             $table->integer('failure_analysis_id')->unsigned();
         });
 
-        Schema::table('action', function (Blueprint $table) {
+        Schema::table('actions', function (Blueprint $table) {
             $table->foreign('failure_analysis_id')->references('id')->on('failure_analyses');
         });
     }
