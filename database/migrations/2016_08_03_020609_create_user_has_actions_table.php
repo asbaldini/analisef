@@ -2,9 +2,8 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Support\Facades\Schema;
 
-class CreateUsersHasActionsTable extends Migration
+class CreateUserHasActionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -20,12 +19,10 @@ class CreateUsersHasActionsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
-
         Schema::table('users_has_actions', function (Blueprint $table) {
             $table->unique(array('user_id', 'action_id'));
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -36,7 +33,6 @@ class CreateUsersHasActionsTable extends Migration
         Schema::table('users_has_actions', function (Blueprint $table) {
             $table->dropUnique(array('user_id', 'action_id'));
         });
-
         Schema::drop('users_has_actions');
     }
 }

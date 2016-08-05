@@ -6,8 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Action extends Model
 {
-    protected $table = 'actions';
-
     protected $fillable = [
         'name',
         'description',
@@ -32,4 +30,5 @@ class Action extends Model
     {
         return $this->belongsToMany('AnaliseF\User', 'users_has_actions', 'action_id', 'user_id');
     }
+
 }

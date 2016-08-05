@@ -19,18 +19,18 @@ class CreateActionsTable extends Migration
             $table->text('description');
             $table->string('equipment', 80);
             $table->timestamp('begin');
-            $table->timestamps('deadline');
+            $table->timestamp('deadline');
             $table->timestamp('deadline2');
             $table->boolean('deadline2_requested');
             $table->boolean('deadline2_authorized');
             $table->integer('failure_analysis_id')->unsigned();
+            $table->timestamps();
+            $table->softDeletes();
         });
-
         Schema::table('actions', function (Blueprint $table) {
             $table->foreign('failure_analysis_id')->references('id')->on('failure_analyses');
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -38,10 +38,9 @@ class CreateActionsTable extends Migration
      */
     public function down()
     {
-        Schema::table('action', function (Blueprint $table) {
+        Schema::table('actions', function (Blueprint $table) {
             $table->dropForeign(['failure_analysis_id']);
         });
-
         Schema::drop('actions');
     }
 }

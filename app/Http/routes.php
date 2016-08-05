@@ -11,10 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(array('middleware' => 'web'), function(){
+    Route::get('/', 'HomeController@index');
+
+    Route::get('login', 'Auth\AuthController@showLoginForm');
+    Route::post('login', 'Auth\AuthController@login');
+    Route::get('logout', 'Auth\AuthController@logout');
+
+    Route::get('registrar', array('as' => 'user.create', 'uses' => 'UserController@create'));
+    Route::post('registrar', array('as' => 'user.store', 'uses' => 'UserController@store'));
+
+    Route::group(array('middleware' => array('auth','valid.user')), function(){
+        Route::get('home', array('as' => 'dashboard', 'uses' => 'UserController@dashboard'));
+        Route::get('usuarios', array('as' => 'user.index', 'uses' => 'UserController@index'));
+    });
 });
-
-Route::auth();
-
-Route::get('/home', 'HomeController@index');

@@ -2,18 +2,26 @@
 
 namespace AnaliseF;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
-    protected $table = 'users';
+    use SoftDeletes;
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'user',
+        'password',
+        'name',
+        'role',
+        'status',
+        'created_at',
+        'updated_at'
     ];
 
     /**
@@ -22,7 +30,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
     public function failureAnalyses()
@@ -33,5 +42,20 @@ class User extends Authenticatable
     public function actions()
     {
         return $this->belongsToMany('AnaliseF\User', 'users_has_actions', 'user_id', 'action_id');
+    }
+
+    public function saveUser($input)
+    {
+        try {
+            DB::transaction(function() use ($input){
+                $user = $this->fill($input);
+
+                if(!$user->save())
+                    throw new Exception('Erro ao salvar usuário');
+            });
+            return true;
+        } catch (Exception $e){
+            return false;
+        }
     }
 }

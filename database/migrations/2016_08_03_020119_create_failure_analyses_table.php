@@ -21,12 +21,10 @@ class CreateFailureAnalysesTable extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
-
         Schema::table('failure_analyses', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users');
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -37,7 +35,6 @@ class CreateFailureAnalysesTable extends Migration
         Schema::table('failure_analyses', function(Blueprint $table){
             $table->dropForeign(['user_id']);
         });
-
         Schema::drop('failure_analyses');
     }
 }
