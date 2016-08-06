@@ -101,6 +101,11 @@
                                     </div>
                                 </div>
                             @endif
+                            @if ($errors->has('action.error'))
+                            <span class="alert alert-danger col-md-offset-4 col-md-4 col-md-offset-4 text-center">
+                                <strong>{{ $errors->first('action.error') }}</strong>
+                            </span>
+                            @endif
                             <div class="action-box col-md-offset-4 col-md-8">
                                 {!! Form::submit('Salvar', array('class' => 'btn btn-md btn-primary')) !!}
                             </div>

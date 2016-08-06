@@ -53,7 +53,7 @@ class UserController extends Controller
 
         if(!$this->userModel->saveUser($input))
         {
-            return back()->withErrors(array('action.error' => 'Erro ao salvar usuário!'));
+            return redirect()->back()->withErrors(array('action.error' => 'Erro ao salvar usuário!'));
         }
 
         return redirect()->route('user.index');
