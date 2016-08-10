@@ -7,7 +7,8 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">{{ $action_title }}</div>
                     <div class="panel-body">
-                        {!! Form::open(array('route' => 'user.store', 'role' => 'form', 'class' => 'form-horizontal')) !!}
+                        {!! Form::model($user, array('route' => array('user.update', $user->id), 'role' => 'form',
+                            'class' => 'form-horizontal', 'method' => 'PUT')) !!}
                             @include('user.partial._form')
                         {!! Form::close() !!}
                     </div>
