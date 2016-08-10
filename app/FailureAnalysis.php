@@ -2,6 +2,7 @@
 
 namespace AnaliseF;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -26,4 +27,19 @@ class FailureAnalysis extends Model
     {
         return $this->hasMany('AnaliseF\Action', 'failure_analysis_id');
     }
+
+    public function getFailureAnalyses($filter = array())
+    {
+        $analyses = new Collection();
+
+        if(!empty($filter)){
+
+        }
+        else {
+            $analyses = $this->all();
+        }
+
+        return $analyses;
+    }
+
 }

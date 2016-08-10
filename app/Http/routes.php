@@ -35,7 +35,7 @@ Route::group(array('middleware' => 'web'), function(){
         Route::group(array('prefix' => 'analise'), function(){
             Route::get('/', array('as' => 'analysis.index', 'uses' => 'AnalysisController@index'));
             Route::get('criar', array('as' => 'analysis.create', 'uses' => 'AnalysisController@create'));
-            Route::post('', array('as' => 'analysis.create', 'uses' => 'AnalysisController@store'));
+            Route::post('', array('as' => 'analysis.store', 'uses' => 'AnalysisController@store'));
             Route::get('{analise}', array('as' => 'analysis.show', 'uses' => 'AnalysisController@show'));
             Route::get('{analise}/editar', array('as' => 'analysis.edit', 'uses' => 'AnalysisController@edit'));
             Route::put('{analise}', array('as' => 'analysis.update', 'uses' => 'AnalysisController@update'));

@@ -54,25 +54,17 @@
                                aria-expanded="false">Análises</a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ route('analysis.index') }}">Listar análises</a></li>
+                                <li><a href="{{ route('analysis.index') }}">Listar</a></li>
                                 <li><a href="{{ route('analysis.create') }}">Nova análise</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown">
-                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                               aria-expanded="false">Ações</a>
 
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ route('action.index') }}">Listar ações</a></li>
-                                <li><a href="{{ route('action.create') }}">Nova ação</a></li>
-                            </ul>
-                        </li>
                         <li class="dropdown">
                             <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-expanded="false">Usuários</a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ route('user.index') }}">Listar usuários</a></li>
+                                <li><a href="{{ route('user.index') }}">Listar</a></li>
                                 <li><a href="{{ route('user.create') }}">Novo usuário</a></li>
                             </ul>
                         </li>
