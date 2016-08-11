@@ -43,13 +43,14 @@ Route::group(array('middleware' => 'web'), function(){
         });
 
         Route::group(array('prefix' => 'acao'), function(){
-            Route::get('/', array('as' => 'action.index', 'uses' => 'ActionController@index'));
+            Route::get('criar/{index}', 'ActionController@create');
+            /*Route::get('/', array('as' => 'action.index', 'uses' => 'ActionController@index'));
             Route::get('criar', array('as' => 'action.create', 'uses' => 'ActionController@create'));
             Route::post('', array('as' => 'action.create', 'uses' => 'ActionController@store'));
             Route::get('{acao}', array('as' => 'action.show', 'uses' => 'ActionController@show'));
             Route::get('{acao}/editar', array('as' => 'action.edit', 'uses' => 'ActionController@edit'));
             Route::put('{acao}', array('as' => 'action.update', 'uses' => 'ActionController@update'));
-            Route::delete('{acao}', array('as' => 'action.destroy', 'uses' => 'ActionController@destroy'));
+            Route::delete('{acao}', array('as' => 'action.destroy', 'uses' => 'ActionController@destroy'));*/
         });
     });
 });

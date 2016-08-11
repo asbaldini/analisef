@@ -37,30 +37,23 @@
     </div>
 </div>
 
-<div class="panel panel-primary">
-    <div class="panel-heading">Ações</div>
+<div class="container-fluid panel">
     <div class="panel-body">
-        <div class="col-md-4">
-            <div class="form-group{{ $errors->has('status') ? ' has-error' : '' }}">
-                {!! Form::label('name', 'Nome', array('class' => 'col-md-2 control-label')) !!}
+        <h4 class="panel-title">Açoes</h4>
+        {!! Form::hidden('index', 1, array('id' => 'index')) !!}
+        <div id="actions-container">
+            @include('analyses.partial._action-row', array('i' => 1))
+        </div>
 
-                <div class="col-md-10">
-                    {!! Form::text('name', null, array('class' => 'form-control')) !!}
-                </div>
-            </div>
+        <div class="row">
+            <button type="button" class="btn btn-default" id="bt-add-action">Adicionar ação</button>
         </div>
-        <div class="col-md-8 table-responsive">
-            <table class="table table-bordered">
-                <thead>
-                    <th>Nome</th>
-                    <th>Descrição</th>
-                    <th>Equipamento</th>
-                    <th>Início</th>
-                    <th>Fim</th>
-                    <th>Responsáveis</th>
-                </thead>
-            </table>
-        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        {!! Form::submit('Salvar analise de falha', array('class' => 'btn btn-primary')) !!}
     </div>
 </div>
 
