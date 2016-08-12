@@ -20,8 +20,8 @@
             {!! Form::select(
                 'status',
                 array(
-                    0 => 'Pendente',
-                    1 => 'Ativa'
+                    1 => 'Ativa',
+                    0 => 'Pendente'
                 ),
                 null,
                 array(

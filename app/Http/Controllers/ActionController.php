@@ -2,8 +2,7 @@
 
 namespace AnaliseF\Http\Controllers;
 
-use Illuminate\Http\Request;
-
+use AnaliseF\Helpers\Helper;
 use AnaliseF\Http\Requests;
 
 class ActionController extends Controller
@@ -12,6 +11,8 @@ class ActionController extends Controller
     {
         $i = $index;
 
-        return view('analyses.partial._action-row', compact('i'));
+        $combo_engineers = Helper::getComboEngineers();
+
+        return view('analyses.partial._action-row', compact('i', 'combo_engineers'));
     }
 }

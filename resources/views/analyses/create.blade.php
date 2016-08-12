@@ -21,7 +21,7 @@
     <script>
         $(document).ready(function(){
             $('#bt-add-action').click(function(){
-                var index = $('#index').val();
+                var index = parseInt($('#index').val());
                 var novo_index = index + 1;
                 var url = '/acao/criar/'+novo_index;
                 $.ajax({
@@ -29,6 +29,7 @@
                     method: 'GET',
                     success: function(data){
                         $('#actions-container').append(data);
+                        $('#index').val(novo_index);
                     },
                     error: function(data){
                         alert(data);
