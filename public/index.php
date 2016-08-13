@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('America/Sao_Paulo');
 
 /**
  * Laravel - A PHP Framework For Web Artisans

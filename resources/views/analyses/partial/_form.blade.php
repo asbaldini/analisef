@@ -1,4 +1,3 @@
-{!! Form::hidden('id', empty($analysis)?0:$analysis->id) !!}
 <div class="row">
     <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }} col-md-9">
         {!! Form::label('description', 'Descriçao', array('class' => 'col-md-2 control-label')) !!}

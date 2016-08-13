@@ -22,13 +22,13 @@
             <div class="col-md-1">
                 <div class="form-group{{ $errors->has('actions.'.$i.'.begin') ? ' has-error' : '' }}">
                     {!! Form::label('actions['.$i.'][begin]', 'Início', array('class' => 'control-label')) !!}
-                    {!! Form::text('actions['.$i.'][begin]', null, array('class' => 'form-control')) !!}
+                    {!! Form::text('actions['.$i.'][begin]', date('d/m/Y'), array('class' => 'form-control')) !!}
                 </div>
             </div>
             <div class="col-md-1">
                 <div class="form-group{{ $errors->has('actions.'.$i.'.deadline') ? ' has-error' : '' }}">
                     {!! Form::label('actions['.$i.'][deadline]', 'Fim', array('class' => 'control-label')) !!}
-                    {!! Form::text('actions['.$i.'][deadline]', null, array('class' => 'form-control')) !!}
+                    {!! Form::text('actions['.$i.'][deadline]', date('d/m/Y'), array('class' => 'form-control')) !!}
                 </div>
             </div>
             <div class="col-md-3">
@@ -69,13 +69,13 @@
         <div class="col-md-1">
             <div class="form-group{{ $errors->has('actions.'.$i.'.begin') ? ' has-error' : '' }}">
                 {!! Form::label('actions['.$i.'][begin]', 'Início', array('class' => 'control-label')) !!}
-                {!! Form::text('actions['.$i.'][begin]', null, array('class' => 'form-control')) !!}
+                {!! Form::text('actions['.$i.'][begin]', date('d/m/Y'), array('class' => 'form-control')) !!}
             </div>
         </div>
         <div class="col-md-1">
             <div class="form-group{{ $errors->has('actions.'.$i.'.deadline') ? ' has-error' : '' }}">
                 {!! Form::label('actions['.$i.'][deadline]', 'Fim', array('class' => 'control-label')) !!}
-                {!! Form::text('actions['.$i.'][deadline]', null, array('class' => 'form-control')) !!}
+                {!! Form::text('actions['.$i.'][deadline]', date('d/m/Y'), array('class' => 'form-control')) !!}
             </div>
         </div>
         <div class="col-md-3">
