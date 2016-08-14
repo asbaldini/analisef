@@ -65,4 +65,22 @@ class AnalysisController extends Controller
             return redirect()->back()->withErrors(array('action.error' => 'Erro ao salvar análise de falha'));
         }
     }
+
+    public function edit($id)
+    {
+        $analysis = $this->analysisModel->getById($id);
+
+        if(!is_null($analysis)){
+            $action_title = 'Editar análise de falha #'.$id;
+
+            $combo_engineers = Helper::getComboEngineers();
+
+            return view('analyses.edit', compact('action_title', 'analysis', 'combo_engineers'));
+        }
+    }
+
+    public function update(AnalysisRequest $request, $id)
+    {
+
+    }
 }

@@ -30,6 +30,17 @@ class FailureAnalysis extends Model
         return $this->hasMany('AnaliseF\Action', 'failure_analysis_id');
     }
 
+    public function getById($id)
+    {
+        try {
+            $failure_analysis = $this->findOrFail($id);
+
+            return $failure_analysis;
+        } catch (Exception $e){
+            return null;
+        }
+    }
+
     public function getFailureAnalyses($filter = array())
     {
         $analyses = new Collection();
@@ -38,7 +49,7 @@ class FailureAnalysis extends Model
 
         }
         else {
-            $analyses = $this->all();
+            $analyses = $this->with('user','actions')->get();
         }
 
         return $analyses;
