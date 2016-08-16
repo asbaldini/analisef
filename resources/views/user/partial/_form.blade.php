@@ -1,12 +1,12 @@
 {!! Form::hidden('id', empty($user)?0:$user->id) !!}
-<div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-    {!! Form::label('name', 'Nome', array('class' => 'col-md-4 control-label')) !!}
+<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+    {!! Form::label('email', 'E-mail', array('class' => 'col-md-4 control-label')) !!}
 
     <div class="col-md-6">
-        {!! Form::text('name', null, array('class' => 'form-control')) !!}
-        @if ($errors->has('name'))
+        {!! Form::email('email', null, array('class' => 'form-control')) !!}
+        @if ($errors->has('email'))
             <span class="help-block">
-                <strong>{{ $errors->first('name') }}</strong>
+                <strong>{{ $errors->first('email') }}</strong>
             </span>
         @endif
     </div>
@@ -20,6 +20,19 @@
         @if ($errors->has('user'))
             <span class="help-block">
                 <strong>{{ $errors->first('user') }}</strong>
+            </span>
+        @endif
+    </div>
+</div>
+
+<div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+    {!! Form::label('name', 'Nome', array('class' => 'col-md-4 control-label')) !!}
+
+    <div class="col-md-6">
+        {!! Form::text('name', null, array('class' => 'form-control')) !!}
+        @if ($errors->has('name'))
+            <span class="help-block">
+                <strong>{{ $errors->first('name') }}</strong>
             </span>
         @endif
     </div>

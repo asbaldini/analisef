@@ -24,6 +24,7 @@ class UserRequest extends Request
     public function rules()
     {
         return [
+            'email' => 'required|email|max:80',
             'name' => 'required|max:80',
             'user' => 'required|max:40|unique:users,user,'.$this->request->get('id'),
             'password' => 'required_unless:_method,PUT|confirmed',
